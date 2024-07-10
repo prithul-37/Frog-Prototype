@@ -9,11 +9,18 @@ public class ClickEvent : MonoBehaviour
     public static event Action<int> UpdateScore = delegate { };
     bool down = false;
 
+    //scoring system
+    private float playerInitialPos;
+
+    private void Start()
+    {
+        playerInitialPos = transform.transform.position.z;
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Platform")
         {
-            UpdateScore?.Invoke(collision.gameObject.GetComponent<MovePlatform>().id);
+            UpdateScore?.Invoke((int)transform.transform.position.z - (int)playerInitialPos);
         }
     }
     private void OnMouseDown()

@@ -12,13 +12,14 @@ public class PlayerDrag : MonoBehaviour
 
     private Vector3 mPos1;
     private Vector3 mPos2;
-    //private bool isShoot = false;
     private bool isDrag = false;
 
     public int lineSegments = 20;
     public GameObject pointObj;
     public float force;
-    
+
+
+    //Trajectory Draw area
     //private LineRenderer lineRenderer;
     private List<Vector3> points = new List<Vector3>(); 
     private List<GameObject> pointHolder = new List<GameObject>();
@@ -29,9 +30,9 @@ public class PlayerDrag : MonoBehaviour
     private bool once = true;
     private bool onGround;
 
+
     
-    
-    // Start is called before the first frame update
+
     void Start()
     {
         //lineRenderer = GetComponent<LineRenderer>();
@@ -40,7 +41,7 @@ public class PlayerDrag : MonoBehaviour
         onGround = true;
     }
 
-    // Update is called once per frame
+
     private void FixedUpdate()
     {
         if (isDrag)

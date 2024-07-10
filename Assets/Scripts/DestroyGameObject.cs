@@ -1,9 +1,19 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DestroyGameObject : MonoBehaviour
 {
-    public float destroyTime;
+    public float destroyTime = 3f;
+
+    private void Start()
+    {
+        var lvlManager = GameObject.FindGameObjectWithTag("LevelManager")?.GetComponent<LevelManager>();
+        if (lvlManager != null)
+        {
+            destroyTime = lvlManager.pDestroyTime;
+        }
+    }
     public void destroyGameObj()
     {
         StartCoroutine(destroy());
