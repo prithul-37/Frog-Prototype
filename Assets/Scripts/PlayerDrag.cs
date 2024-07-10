@@ -30,8 +30,9 @@ public class PlayerDrag : MonoBehaviour
     private bool once = true;
     private bool onGround;
 
+    //Ripple Effect
+    public GameObject rippleEffect;
 
-    
 
     void Start()
     {
@@ -140,6 +141,9 @@ public class PlayerDrag : MonoBehaviour
 
         if (collision.gameObject.tag == "Ground")
         {
+            var rplefx = Instantiate(rippleEffect, transform.position, Quaternion.identity);
+            rplefx.GetComponent<DestroyGameObject>().transform.localScale = new Vector3(3f,.5f,3f);
+            rplefx.GetComponent<DestroyGameObject>().destroyTime = 5f;
             StartCoroutine(ResetScene());
         }
 

@@ -11,6 +11,9 @@ public class MovePlatform : MonoBehaviour
 
     public int id;
     public bool activeCoin;
+
+    //Ripple Effect
+    public GameObject rippleEffect;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -47,6 +50,7 @@ public class MovePlatform : MonoBehaviour
         if (collision.gameObject.tag == "Player" && once) 
         {
             //Joint Creation
+            Instantiate(rippleEffect, transform.position, Quaternion.identity);
             joint = gameObject.AddComponent<FixedJoint>();
             joint.connectedBody = collision.rigidbody;
             once = false;

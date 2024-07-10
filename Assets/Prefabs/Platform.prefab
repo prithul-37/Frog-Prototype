@@ -120,6 +120,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  activeCoin: 0
+  rippleEffect: {fileID: 2518689991728848710, guid: 04639e7794208f14188ebb9a4777c2ba, type: 3}
 --- !u!114 &5080498239483857022
 MonoBehaviour:
   m_ObjectHideFlags: 0

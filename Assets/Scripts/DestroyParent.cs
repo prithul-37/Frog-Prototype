@@ -7,7 +7,8 @@ public class DestroyParent : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(transform.parent.gameObject);
+        if(other.gameObject.tag == "Player")
+            Destroy(transform.parent.gameObject);
     }
 }
 
