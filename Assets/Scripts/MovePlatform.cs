@@ -10,6 +10,7 @@ public class MovePlatform : MonoBehaviour
     private int doMove = 0;
 
     public int id;
+    public bool activeCoin;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -21,6 +22,7 @@ public class MovePlatform : MonoBehaviour
             doMove = 1;
             speed = lvlManager.speedOfPlatforms;
         }
+        transform.GetChild(1).gameObject.SetActive(activeCoin);
 
     }
     private void FixedUpdate()

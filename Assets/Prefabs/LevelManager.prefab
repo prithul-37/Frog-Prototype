@@ -45,3 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iMovePlatform: 1
+  speedOfPlatforms: 0.01
+  pDestroyTime: 1
+  iEnableObstacles: 0
+  iMoveObstale: 0
+  speedOfObstale: 0.01
+  xTh: 0
+  yTh: 0
+  zTh: 0
