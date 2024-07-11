@@ -56,8 +56,8 @@ public class MovePlatform : MonoBehaviour
             once = false;
 
             //Destroy Joint Menually
-            var playerDrag = collision.gameObject.GetComponent<ClickEvent>();
-            playerDrag.Shooted += removeJoint;
+            var playerEvents = collision.gameObject.GetComponent<PlayerEvents>();
+            playerEvents.Shooted += removeJoint;
             gameObject.GetComponent<Animator>().SetTrigger("PlayerJumpedOn");
 
         }

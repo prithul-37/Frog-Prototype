@@ -10,7 +10,7 @@ public class UpdateScore : MonoBehaviour
     private void Start()
     {
         GetComponent<TextMeshProUGUI>().text = 00.ToString();
-        ClickEvent.UpdateScore += updateScore;
+        PlayerEvents.UpdateScore += updateScore;
     }
     public void updateScore(int x)
     {
@@ -19,6 +19,6 @@ public class UpdateScore : MonoBehaviour
 
     private void OnDestroy()
     {
-        ClickEvent.UpdateScore -= updateScore;
+        PlayerEvents.UpdateScore -= updateScore;
     }
 }
