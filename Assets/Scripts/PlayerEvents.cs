@@ -14,6 +14,11 @@ public class PlayerEvents : MonoBehaviour
     //scoring system
     private float playerInitialPos;
 
+    //Audios
+    [SerializeField] AudioClip win;
+    [SerializeField] AudioClip failed;
+    [SerializeField] AudioClip landing;
+
     private void Start()
     {
         playerInitialPos = transform.transform.position.z;
@@ -22,11 +27,13 @@ public class PlayerEvents : MonoBehaviour
     {
         if (collision.gameObject.tag == "Platform")
         {
+            AudioManager.instance.playClip(landing, transform, 1);
             UpdateScore?.Invoke((int)transform.transform.position.z - (int)playerInitialPos);
         }
         else if (collision.gameObject.tag == "Ground")
         {
             //print("GG");
+            AudioManager.instance.playClip(failed,transform,1);
             playerdied?.Invoke();
         }
 
@@ -37,6 +44,7 @@ public class PlayerEvents : MonoBehaviour
         if (other.gameObject.tag == "EndTrigger")
         {
             //print("win");
+            AudioManager.instance.playClip(win, transform, 1);
             levelCompleted?.Invoke();
         }
     }

@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 6590015875460167928}
   - component: {fileID: 8026634896224401026}
   - component: {fileID: 4268592458639147678}
-  - component: {fileID: 7611014002372573950}
   - component: {fileID: 6066252934126918926}
+  - component: {fileID: 2391977354714523731}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -257,18 +257,6 @@ MonoBehaviour:
   pointObj: {fileID: 1878857658641777244, guid: 51c0241c8bcd83746b4bce06e973259a, type: 3}
   force: 0.5
   rippleEffect: {fileID: 2518689991728848710, guid: 04639e7794208f14188ebb9a4777c2ba, type: 3}
---- !u!114 &7611014002372573950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8826801892268333454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 507f7f1b181869f4ab6348a033de261e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6066252934126918926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,3 +269,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4a1c19a97c4dca4aa96fa62e8c74edd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audios:
+  - {fileID: 8300000, guid: 57309a3825e9dfd42949a33add8a8ce4, type: 3}
+  - {fileID: 8300000, guid: ff01dc8aeaea9f241aa02c268b73e239, type: 3}
+  - {fileID: 8300000, guid: bbb7b313e5d5aa14e94fc866f1c997f5, type: 3}
+--- !u!114 &2391977354714523731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8826801892268333454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f61fe77f7f61b8458b3bab4a370f8af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  win: {fileID: 8300000, guid: 4969fdb3f8d3732479159ab806902909, type: 3}
+  failed: {fileID: 8300000, guid: 202b3497bd0064044aa33335d9faa313, type: 3}
+  landing: {fileID: 8300000, guid: f65618cc98761f84ca62e6260752fdaf, type: 3}
