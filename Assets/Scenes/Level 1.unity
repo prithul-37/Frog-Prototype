@@ -1485,6 +1485,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2570270369424648379, guid: 4d49ac3ea8c19584fbfd13caf9989892, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2479628606523874948}
     - target: {fileID: 5300215601085321203, guid: 4d49ac3ea8c19584fbfd13caf9989892, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1565,6 +1569,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6165874218619270926, guid: 4d49ac3ea8c19584fbfd13caf9989892, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2479628606523874948}
+    - target: {fileID: 8516622386986142698, guid: 4d49ac3ea8c19584fbfd13caf9989892, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2479628606523874948}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1810,6 +1822,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18c6e3450c3356e42a95195fbf1d20fe, type: 3}
+--- !u!114 &2479628606523874948 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3638235186059513897, guid: 18c6e3450c3356e42a95195fbf1d20fe, type: 3}
+  m_PrefabInstance: {fileID: 2479628606523874947}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 057002d778825b4418a2bdc2ff68a29e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4687515964745115672
 PrefabInstance:
   m_ObjectHideFlags: 0
