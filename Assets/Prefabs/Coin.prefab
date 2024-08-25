@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 8915273922359414495}
   - component: {fileID: 3415562207870353531}
   - component: {fileID: 8936867717982615358}
-  m_Layer: 0
+  - component: {fileID: 3154906819498060032}
+  m_Layer: 7
   m_Name: Coin
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,8 +107,8 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
+  m_Height: 5
+  m_Direction: 2
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!95 &3415562207870353531
 Animator:
@@ -140,5 +141,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d720cf0c8d7357742a69719509d1f86a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colletCoin: {fileID: 8300000, guid: 8601912737f52434f8208b1f92e7cc90, type: 3}
+--- !u!114 &3154906819498060032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327354471716180325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94838523de56fb7428c5a5615f015293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

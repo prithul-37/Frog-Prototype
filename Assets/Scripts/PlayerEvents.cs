@@ -19,6 +19,7 @@ public class PlayerEvents : MonoBehaviour
     [SerializeField] AudioClip failed;
     [SerializeField] AudioClip landing;
 
+
     private void Start()
     {
         playerInitialPos = transform.transform.position.z;
@@ -33,6 +34,7 @@ public class PlayerEvents : MonoBehaviour
         else if (collision.gameObject.tag == "Ground")
         {
             //print("GG");
+            AudioManager.instance.playClip(landing, transform, 1);
             AudioManager.instance.playClip(failed,transform,1);
             playerdied?.Invoke();
         }
@@ -43,7 +45,7 @@ public class PlayerEvents : MonoBehaviour
     {
         if (other.gameObject.tag == "EndTrigger")
         {
-            //print("win");
+            print("win");
             AudioManager.instance.playClip(win, transform, 1);
             levelCompleted?.Invoke();
         }

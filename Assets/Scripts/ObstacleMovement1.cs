@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using UnityEngine;
 
 public class ObstacleMovement1 : MonoBehaviour
@@ -13,6 +14,7 @@ public class ObstacleMovement1 : MonoBehaviour
 
     private float iX,iY,iZ;//initial pos
 
+    [SerializeField] AudioClip charshSFx;
     void Start()
     {   
         iX = transform.position.x;
@@ -78,4 +80,11 @@ public class ObstacleMovement1 : MonoBehaviour
         rb.position = new Vector3(transform.position.x, transform.position.y, transform.position.z) + moveDirVector* direction;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            AudioManager.instance.playClip(charshSFx, transform, 1);
+        }
+    }
 }

@@ -18,17 +18,21 @@ public class PlayerDrag : MonoBehaviour
     public GameObject pointObj;
     public float force;
 
+    Rigidbody rb;
 
     //Trajectory Draw area
+
     //private LineRenderer lineRenderer;
     private List<Vector3> points = new List<Vector3>(); 
     private List<GameObject> pointHolder = new List<GameObject>();
     private float HowManyToShow = 20;
     private Vector3 forceVector = Vector3.zero;
     private float mass;
-    private float gravity;
-    private bool once = true;
-    private bool onGround;
+
+    bool once = true; // it prevent gound checking more than once after lanfing..!
+
+    public int MaxJump = 1;
+    private int JumpLeft;
 
     //Ripple Effect
     public GameObject rippleEffect;
@@ -38,13 +42,15 @@ public class PlayerDrag : MonoBehaviour
     {
         //lineRenderer = GetComponent<LineRenderer>();
         mass = GetComponent<Rigidbody>().mass;
-        gravity = Physics.gravity.y;
-        onGround = true;
+        rb = GetComponent<Rigidbody>();
+        JumpLeft = MaxJump;
     }
 
 
     private void FixedUpdate()
     {
+        //Debug.Log(JumpLeft);
+
         if (isDrag)
         {
             drawTrajectory();
@@ -53,10 +59,12 @@ public class PlayerDrag : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (onGround)
+        if (JumpLeft > 0)
         {
             mPos1 = Input.mousePosition;
             isDrag = true;
+            rb.velocity = Vector3.zero;
+            rb.isKinematic = true; 
         }
         
         
@@ -64,7 +72,7 @@ public class PlayerDrag : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (onGround)
+        if (JumpLeft > 0)
         {
             mPos2 = Input.mousePosition;
             isDrag = false;
@@ -72,18 +80,22 @@ public class PlayerDrag : MonoBehaviour
             {
                 Destroy(go);
             }
-            shoot(mPos1 - mPos2);
+            if(mPos1 != Vector3.zero && mPos2 != Vector3.zero)
+                shoot(mPos1 - mPos2);
+
+            mPos1 = Vector3.zero;
+            mPos2 = Vector3.zero;
         }
         
         
     }
 
     void shoot(Vector2 dir)
-    {   
-        once = true;
-        onGround = false;
-        gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(dir.x,dir.y,dir.y)* force, ForceMode.Impulse);
-        
+    {
+        rb.isKinematic = false;
+        rb.AddForce(new Vector3(dir.x,dir.y,dir.y)* force, ForceMode.Impulse);
+        JumpLeft--;
+        Invoke("HasJumped",.1f);
     }
 
     void drawTrajectory()
@@ -92,7 +104,6 @@ public class PlayerDrag : MonoBehaviour
             Destroy(go);
         }
 
-        //Debug.Log("INNN");
         var dir = Input.mousePosition - mPos1;
         forceVector = new Vector3(dir.x,dir.y, dir.y) * force;
         //Debug.Log($"forceVector:{forceVector}");
@@ -130,28 +141,32 @@ public class PlayerDrag : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (once)
+        if(once)
         {
             if (collision.gameObject.tag == "Platform")
             {
-                StartCoroutine(stopMotion());
+                rb.velocity = Vector3.zero;
+                JumpLeft = MaxJump;
                 once = false;
             }
         }
 
     }
 
-    IEnumerator stopMotion()
-    {
-        gameObject.GetComponent<Rigidbody>().isKinematic = true;
-        yield return null;
-        gameObject.GetComponent<Rigidbody>().isKinematic = false;
-        onGround = true;
-    }
 
     IEnumerator ResetScene()
     {
         yield return new WaitForSeconds(.5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    void HasJumped()
+    {
+        once = true;
+    }
+
+    public void GetExtraJump() 
+    {
+        JumpLeft++;
     }
 }

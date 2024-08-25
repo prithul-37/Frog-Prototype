@@ -149,3 +149,4 @@ MonoBehaviour:
   X: 1
   Y: 0
   Z: 0
+  charshSFx: {fileID: 8300000, guid: 18357e3152ea9784d88ca7dd0ac10b61, type: 3}
